@@ -38,21 +38,17 @@ public class TopologicalSort {
                 dfs(graphNode, visited, topoList);
             }
         }
-
         return topoList;
     }
 
     private static void dfs(Node graphNode, boolean[] visited, List<Node> topoList) {
-
         visited[graphNode.val] = true;
-
         for (Node neighbor : graphNode.neighbors) {
             if (!visited[neighbor.val]) {
                 dfs(neighbor, visited, topoList);
             }
         }
         topoList.add(0, graphNode);
-
     }
 
 

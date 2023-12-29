@@ -25,16 +25,16 @@ public class Median {
         }
         int n = (length % 2 == 0)? (length/2) - 1 : (length)/2;
 
-        Character mode = null;
+        Character median = null;
         for (char key : countMap.keySet())
         {
-            mode = key;
+            median = key;
             n=n-countMap.get(key);
             if (n<0){
                 break;
             }
         }
-        return mode;
+        return median;
     }
 
     private static Character getMode(char[] array)
