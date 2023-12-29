@@ -38,15 +38,12 @@ public class NumberOfShortestPaths {
     }
 
     private static int getNumberOfShortestPaths(int from, int to, Map<Integer, List<Integer>> graph) {
-
         boolean[] visited = new boolean[graph.size()];
         visited[from] = true;
-        bfs(from, to, visited, graph, 0);
-
+        dfs(from, to, visited, graph, 0);
         return count;
     }
-
-    private static void bfs(Integer node, int to, boolean[] visited, Map<Integer, List<Integer>> graph, int currentHops) {
+    private static void dfs(Integer node, int to, boolean[] visited, Map<Integer, List<Integer>> graph, int currentHops) {
         currentHops++;
         if (node == to)
         {
@@ -62,13 +59,11 @@ public class NumberOfShortestPaths {
             {
                 if (!visited[neighbor]){
                     visited[neighbor] = true;
-                    bfs(neighbor, to, visited, graph, currentHops);
+                    dfs(neighbor, to, visited, graph, currentHops);
                 }
-
             }
         }
         visited[node]=false;
-
     }
     private static void addEdge(Map<Integer, List<Integer>> graph, int from, int to) {
         graph.get(from).add(to);
